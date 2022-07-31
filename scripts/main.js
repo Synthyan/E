@@ -152,7 +152,7 @@ ui.onLoad(() => {
 
 ui.addButton("unit-factory", spawning, () => {
 	if (Vars.net.client()) {
-		if (!Vars.player.admin) {
+		if (!Vars.player.player) {
 			Vars.ui.showInfoToast("You egg that would desync", 5);
 			return;
 		}
