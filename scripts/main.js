@@ -137,7 +137,7 @@ ui.onLoad(() => {
 
 	/* Buttons */
 	dialog.addCloseButton();
-	dialog.buttons.button("$unit-factory.spawn", Icon.modeSandbox, spawn)
+	dialog.buttons.button("$unit-factory.spawn", Icon.modeAttack, spawn)
 		.disabled(() => !Vars.world.passable(pos.x / 8, pos.y / 8));
 
 	const teamRect = extend(TextureRegionDrawable, Tex.whiteui, {});
