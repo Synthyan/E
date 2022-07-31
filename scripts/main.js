@@ -138,7 +138,7 @@ ui.onLoad(() => {
 	/* Buttons */
 	dialog.addCloseButton();
 	dialog.buttons.button("$unit-factory.spawn", Icon.modeAttack, spawn)
-		.enabled(() => !Vars.world.passable(pos.x / 8, pos.y / 8));
+		.d(() => !Vars.world.passable(pos.x / 8, pos.y / 8));
 
 	const teamRect = extend(TextureRegionDrawable, Tex.whiteui, {});
 	teamRect.tint.set(team.color);
