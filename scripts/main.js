@@ -1,16 +1,13 @@
 /*
 	Copyright (c) DeltaNedas 2020
-
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 3 of the License, or
 	(at your option) any later version.
-
 	This program is distributed in the hope that it will be useful,
 	but WITHOUT ANY WARRANTY; without even the implied warranty of
 	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 	GNU General Public License for more details.
-
 	You should have received a copy of the GNU General Public License
 	along with this program. If not, see <https://www.gnu.org/licenses/>.
 */
@@ -140,7 +137,7 @@ ui.onLoad(() => {
 
 	/* Buttons */
 	dialog.addCloseButton();
-	dialog.buttons.button("$unit-factory.spawn", Icon.modeAttack, spawn)
+	dialog.buttons.button("$unit-factory.spawn", Icon.modeSandbox, spawn)
 		.disabled(() => !Vars.world.passable(pos.x / 8, pos.y / 8));
 
 	const teamRect = extend(TextureRegionDrawable, Tex.whiteui, {});
@@ -152,3 +149,17 @@ ui.onLoad(() => {
 		}, (i, t) => "[#" + t.color + "]" + t);
 	});
 });
+
+ui.addButton("unit-factory", spawning, () => {
+	if (Vars.net.client()) {
+		if (!Vars.player.admin) {
+			Vars.ui.showInfoToast("You egg that would desync", 5);
+			return;
+		}
+	} else if (Vars.state.rules.sector) {
+		Vars.ui.showInfoToast("No cheating! [red]*slaps hand*", 5);
+		return;
+	}
+
+	dialog.show();
+}, b => {button = b.get()});
