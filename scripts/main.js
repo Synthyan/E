@@ -138,7 +138,7 @@ ui.onLoad(() => {
 	/* Buttons */
 	dialog.addCloseButton();
 	dialog.buttons.button("$unit-factory.spawn", Icon.modeAttack, spawn)
-		.d(() => !Vars.world.passable(pos.x / 8, pos.y / 8));
+		.disabled(() => !Vars.world.passable(pos.x / 8, pos.y / 8));
 
 	const teamRect = extend(TextureRegionDrawable, Tex.whiteui, {});
 	teamRect.tint.set(team.color);
@@ -153,11 +153,11 @@ ui.onLoad(() => {
 ui.addButton("unit-factory", spawning, () => {
 	if (Vars.net.client()) {
 		if (!Vars.player.player) {
-			Vars.ui.showInfoToast("You egg that would desync", 5);
+			Vars.ui.showInfoToast("KILL ME", 5);
 			return;
 		}
-	} else if (Vars.state.rules.sector) {
-		Vars.ui.showInfoToast("No cheating! [red]*slaps hand*", 5);
+	} else if (Vars.state.sector) {
+		Vars.ui.showInfoToast("A", 5);
 		return;
 	}
 
