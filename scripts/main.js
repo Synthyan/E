@@ -37,7 +37,7 @@ function spawnLocal() {
 }
 
 // Multiplayer, compile a function to send with /js, good for nydus and other abusive servers
-function spawnLocal() {
+function spawnRemote() {
 	// TODO
 	const unitcode = "UnitTypes." + spawning.name;
 	const teamcode = "Team." + team.name;
