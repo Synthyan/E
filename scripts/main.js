@@ -156,7 +156,7 @@ ui.addButton("unit-factory", spawning, () => {
 			Vars.ui.showInfoToast("KILL ME", 5);
 			return;
 		}
-	} else if (Vars.state.sector) {
+	} else if (Vars.state.server) {
 		Vars.ui.showInfoToast("A", 5);
 		return;
 	}
