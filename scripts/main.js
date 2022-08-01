@@ -152,12 +152,12 @@ ui.onLoad(() => {
 
 ui.addButton("unit-factory", spawning, () => {
 	if (Vars.net.client()) {
-		if (!Vars.player.player) {
-			Vars.ui.showInfoToast("KILL ME", 5);
+		if (!Vars.player.admin) {
+			Vars.ui.showInfoToast("You egg that would desync", 5);
 			return;
 		}
-	} else if (Vars.state.server) {
-		Vars.ui.showInfoToast("A", 5);
+	} else if (Vars.state.rules.server) {
+		Vars.ui.showInfoToast("No cheating! [red]*slaps hand*", 5);
 		return;
 	}
 
